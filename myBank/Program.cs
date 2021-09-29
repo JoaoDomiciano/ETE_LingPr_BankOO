@@ -5,17 +5,25 @@ namespace myBank
     class Program
     {
         static void Main(string[] args)
-        {
-            Cliente contaDoJoao = new Cliente("Joao", 752, 120);
-            Cliente contaDaBarbara = new Cliente("Barbara", 863, 100);
-            Cliente contaDaMaria = new Cliente("Maria", 123, 150);
+        {            
+            Funcionario funcionarioFernando = new Funcionario();
+            funcionarioFernando.Nome = "Fernando";
+            funcionarioFernando.CPF = "123.123.123-12";
+            funcionarioFernando.Cargo = "Vendedor";
+            funcionarioFernando.Salario = 1000;
 
-            Console.WriteLine("O número da conta da Barbara é: " + contaDaBarbara.Conta);
-            Console.WriteLine("O saldo da conta da Barbara é: " + contaDaBarbara.Saldo);
-            Console.WriteLine("O número da conta da Joao é: " + contaDoJoao.Conta);
-            Console.WriteLine("O saldo da conta do Joao é: " + contaDoJoao.Saldo);
+            Funcionario funcionarioGustavo = new Funcionario();
+            funcionarioGustavo.Nome = "Gustavo";
+            funcionarioGustavo.CPF = "456.456.456-45";
+            funcionarioGustavo.Cargo = "Vendedor";
+            funcionarioGustavo.Salario = 1000;
 
-            Console.WriteLine("O saldo da conta do Joao é: " + Cliente.TotalDeContasCriadas);
+            Cliente contaDoJoao = new Cliente("Joao", 752, 120, funcionarioFernando);
+            Cliente contaDaBarbara = new Cliente("Barbara", 863, 100, funcionarioGustavo);
+            Cliente contaDaMaria = new Cliente("Maria", 123, 150, funcionarioFernando);
+
+            Console.WriteLine("Comissão FERNANDO: " + funcionarioFernando.Comissão);
+            Console.WriteLine("Comissão GUSTAVO: " + funcionarioGustavo.Comissão);
         }
     }
 }
