@@ -1,11 +1,10 @@
-public class Cliente{
-    
+public class Cliente{    
     public string Titular { get;set; }
     public int Agencia { get;set; }
     public int Conta { get;set; } 
 
-    public static int TotalDeContasCriadas { get;set; }
     public static double TotalDeComissao { get;set; }
+    public static int TotalDeContasCriadas { get;set; }
     private double _saldo;
     public double Saldo {
         get{
@@ -17,8 +16,8 @@ public class Cliente{
             }
         }
     }
-     public Cliente() {}
 
+    public Cliente() {}
     public Cliente(string cliente_titular, int cliente_agencia, double cliente_saldo, Funcionario funcionario)
     { 
         Titular = cliente_titular;
@@ -28,7 +27,7 @@ public class Cliente{
         TotalDeContasCriadas ++;
         TotalDeComissao += cliente_saldo * 0.01;
 
-        funcionario.Comissão += cliente_saldo * 0.01;
+        funcionario.Comissao += cliente_saldo * 0.01;
     }
 
     public bool Sacar (double valor)
